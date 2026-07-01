@@ -2,25 +2,28 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mengarahkan ke Edpuzzle...</title>
+    <title>Redirect Edpuzzle</title>
 
     <script>
-        const linkGanjil = "https://edpuzzle.com/signup/teacher?rc=36q0c8";
-        const linkGenap = "https://example.com"; // Ganti nanti jika sudah punya
+        const link1 = "https://edpuzzle.com/signup/teacher?rc=36q0c8";
+        const link2 = "https://example.com"; // Nanti ganti dengan link Edpuzzle kedua
 
-        const tanggal = new Date().getDate();
+        // Menghitung jumlah hari sejak 1 Januari 2026
+        const mulai = new Date("2026-01-01");
+        const hariIni = new Date();
 
-        if (tanggal % 2 === 1) {
-            window.location.replace(linkGanjil);
+        const selisihHari = Math.floor(
+            (hariIni - mulai) / (1000 * 60 * 60 * 24)
+        );
+
+        if (selisihHari % 2 === 0) {
+            window.location.replace(link1);
         } else {
-            window.location.replace(linkGenap);
+            window.location.replace(link2);
         }
     </script>
 </head>
-
-<body style="font-family:Arial;text-align:center;padding-top:80px;">
-    <h2>Sedang mengarahkan ke Edpuzzle...</h2>
-    <p>Jika tidak otomatis berpindah, silakan muat ulang halaman.</p>
+<body>
+    <h2>Sedang menghubungkan ke Edpuzzle...</h2>
 </body>
 </html>
