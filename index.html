@@ -1,29 +1,65 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Redirect Edpuzzle</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menghubungkan ke Edpuzzle...</title>
 
-    <script>
-        const link1 = "https://edpuzzle.com/signup/teacher?rc=36q0c8";
-        const link2 = "https://example.com"; // Nanti ganti dengan link Edpuzzle kedua
+<script>
+// ===============================
+// GANTI HANYA DUA LINK DI BAWAH INI
+// ===============================
+const LINK_1 = "https://edpuzzle.com/signup/teacher?rc=36q0c8";
+const LINK_2 = "https://example.com"; // Ganti jika sudah punya link kedua
+// ===============================
 
-        // Menghitung jumlah hari sejak 1 Januari 2026
-        const mulai = new Date("2026-01-01");
-        const hariIni = new Date();
+// Tanggal acuan (bebas, jangan diubah lagi)
+const TANGGAL_ACUAN = new Date(2026, 0, 1); // 1 Januari 2026
 
-        const selisihHari = Math.floor(
-            (hariIni - mulai) / (1000 * 60 * 60 * 24)
-        );
+const hariIni = new Date();
 
-        if (selisihHari % 2 === 0) {
-            window.location.replace(link1);
-        } else {
-            window.location.replace(link2);
-        }
-    </script>
+// Hilangkan jam agar tidak terpengaruh waktu
+TANGGAL_ACUAN.setHours(0,0,0,0);
+hariIni.setHours(0,0,0,0);
+
+// Hitung selisih hari
+const selisihHari = Math.floor(
+    (hariIni - TANGGAL_ACUAN) / (1000 * 60 * 60 * 24)
+);
+
+// Genap = Link 1
+// Ganjil = Link 2
+const tujuan = (selisihHari % 2 === 0) ? LINK_1 : LINK_2;
+
+// Redirect
+window.location.replace(tujuan);
+
+</script>
+
+<style>
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+    background:#f5f7fb;
+    color:#333;
+}
+.box{
+    text-align:center;
+}
+</style>
+
 </head>
+
 <body>
-    <h2>Sedang menghubungkan ke Edpuzzle...</h2>
+
+<div class="box">
+    <h2>Menghubungkan ke Edpuzzle...</h2>
+    <p>Mohon tunggu beberapa saat.</p>
+</div>
+
 </body>
 </html>
