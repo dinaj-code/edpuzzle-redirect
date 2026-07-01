@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mengarahkan ke Edpuzzle...</title>
+
+    <script>
+        const linkGanjil = "https://edpuzzle.com/signup/teacher?rc=36q0c8";
+        const linkGenap = "https://example.com"; // Ganti nanti jika sudah punya
+
+        const tanggal = new Date().getDate();
+
+        if (tanggal % 2 === 1) {
+            window.location.replace(linkGanjil);
+        } else {
+            window.location.replace(linkGenap);
+        }
+    </script>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding-top:80px;">
+    <h2>Sedang mengarahkan ke Edpuzzle...</h2>
+    <p>Jika tidak otomatis berpindah, silakan muat ulang halaman.</p>
+</body>
+</html>
